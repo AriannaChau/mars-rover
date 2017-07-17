@@ -1,4 +1,5 @@
 <h1>Curiosity Images</h1>
+<a routerLink="/user/photos">View Your Saved Photos</a>
 
 <form>
   <div class="form-group">
@@ -16,10 +17,11 @@
     </select>
   </div>
   <button (click)="getRoverImages(roverDate.value, roverCamera.value)">Get Photos</button>
+  <button (click)="saveRoverImages(roverDate.value, roverCamera.value)">Save All Images</button>
 </form>
 
 <div *ngIf="photos && !noPhotos">
-    <app-photos-list [childPhotos]="photos"></app-photos-list>
+  <app-photos-list [childPhotos]="photos"></app-photos-list>
 </div>
 <div *ngIf = "noPhotos">
   <h3>There were no photos taken on {{roverDate.value}} by the {{roverCamera.value}} camera.</h3>
